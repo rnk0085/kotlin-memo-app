@@ -12,11 +12,16 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_createFragment"
-            app:destination="@id/createFragment" />
+            app:destination="@id/createFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/createFragment"
         android:name="com.rnk0085.android.memo.CreateFragment"
         android:label="fragment_create"
-        tools:layout="@layout/fragment_create" />
+        tools:layout="@layout/fragment_create" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
 </navigation>

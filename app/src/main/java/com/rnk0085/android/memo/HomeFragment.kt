@@ -26,8 +26,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun onCreateButton() {
+        val name = binding.editTextTextPersonName.text.toString()
         val action = HomeFragmentDirections
-            .actionHomeFragmentToCreateFragment()
+            .actionHomeFragmentToCreateFragment(name)
         view?.findNavController()?.navigate(action)
     }
 
