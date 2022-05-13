@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.rnk0085.android.memo.databinding.FragmentCreateBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreateFragment : Fragment(R.layout.fragment_create) {
     private var _binding: FragmentCreateBinding? = null
     private val binding get() = _binding!!
