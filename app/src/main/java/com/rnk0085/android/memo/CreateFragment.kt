@@ -14,7 +14,7 @@ class CreateFragment : Fragment(R.layout.fragment_create) {
     private var _binding: FragmentCreateBinding? = null
     private val binding get() = _binding!!
 
-    val args: CreateFragmentArgs by navArgs()
+    // val args: CreateFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,8 +26,8 @@ class CreateFragment : Fragment(R.layout.fragment_create) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val name = args.name
-        binding.textView2.text = name
+//        val name = args.name
+//        binding.textView2.text = name
     }
 
     override fun onDestroyView() {
