@@ -48,6 +48,10 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
 
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
