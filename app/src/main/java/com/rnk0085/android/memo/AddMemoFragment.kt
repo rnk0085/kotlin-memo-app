@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
-import com.rnk0085.android.memo.databinding.FragmentCreateBinding
+import com.rnk0085.android.memo.databinding.FragmentAddMemoBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CreateFragment : Fragment(R.layout.fragment_create) {
-    private var _binding: FragmentCreateBinding? = null
+class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
+    private var _binding: FragmentAddMemoBinding? = null
     private val binding get() = _binding!!
 
     // val args: CreateFragmentArgs by navArgs()
@@ -21,7 +20,7 @@ class CreateFragment : Fragment(R.layout.fragment_create) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCreateBinding.inflate(inflater, container, false)
+        _binding = FragmentAddMemoBinding.inflate(inflater, container, false)
         return binding.root
     }
 
