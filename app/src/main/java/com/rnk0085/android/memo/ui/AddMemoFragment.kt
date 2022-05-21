@@ -50,9 +50,13 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
                 binding.editMemoTitle.editText?.text.toString(),
                 binding.editMemoContent.editText?.text.toString()
             )
-            val action = AddMemoFragmentDirections.actionAddMemoFragmentToHomeFragment()
-            findNavController().navigate(action)
+            navigation()
         }
+    }
+
+    private fun navigation() {
+        val action = AddMemoFragmentDirections.actionAddMemoFragmentToHomeFragment()
+        findNavController().navigate(action)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -81,6 +85,6 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
 
     override fun onDialogNegativeClick() {
         // 削除
-        TODO("Not yet implemented")
+        navigation()
     }
 }
