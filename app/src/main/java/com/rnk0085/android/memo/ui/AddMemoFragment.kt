@@ -57,6 +57,16 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
         inflater.inflate(R.menu.add_memo_menu, menu)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_add_memo -> {
+                addNewMemo()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
