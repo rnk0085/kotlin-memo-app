@@ -1,19 +1,22 @@
 package com.rnk0085.android.memo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.rnk0085.android.memo.databinding.FragmentAddMemoBinding
+import com.rnk0085.android.memo.viewModels.AddMemoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
+    private val viewModel: AddMemoViewModel by viewModels()
+
     private var _binding: FragmentAddMemoBinding? = null
     private val binding get() = _binding!!
-
-    // val args: CreateFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,8 +28,18 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        val name = args.name
-//        binding.textView2.text = name
+        binding.addMemoButton.setOnClickListener {
+            val temp = isEntryValid()
+
+            Log.d("AddMemoFragment", temp.toString())
+        }
+    }
+
+    private fun isEntryValid(): Boolean {
+        return viewModel.isEntryValid(
+            binding.editMemoTitle.editText?.text.toString(),
+            binding.editMemoContent.editText?.text.toString()
+        )
     }
 
     override fun onDestroyView() {
