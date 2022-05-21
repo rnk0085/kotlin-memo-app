@@ -13,7 +13,7 @@ class AddMemoViewModel @Inject constructor(
     private val memoRepository: MemoRepository
 ) : ViewModel() {
 
-    fun insertMemo(memoTitle: String, memoContent: String) {
+    fun addNewMemo(memoTitle: String, memoContent: String) {
         viewModelScope.launch {
             try {
                 memoRepository.insert(memoTitle, memoContent)

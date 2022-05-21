@@ -29,9 +29,7 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.addMemoButton.setOnClickListener {
-            val temp = isEntryValid()
-
-            Log.d("AddMemoFragment", temp.toString())
+            addNewMemo()
         }
     }
 
@@ -40,6 +38,15 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
             binding.editMemoTitle.editText?.text.toString(),
             binding.editMemoContent.editText?.text.toString()
         )
+    }
+
+    private fun addNewMemo() {
+        if (isEntryValid()) {
+            viewModel.addNewMemo(
+                binding.editMemoTitle.editText?.text.toString(),
+                binding.editMemoContent.editText?.text.toString()
+            )
+        }
     }
 
     override fun onDestroyView() {
