@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Memo</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="home_fragment_label">メモ一覧</string>
+    <string name="add_memo_fragment_label">新規作成</string>
+
+    <string name="title">タイトル</string>
+    <string name="content">内容</string>
+    <string name="create">作成</string>
 </resources>
