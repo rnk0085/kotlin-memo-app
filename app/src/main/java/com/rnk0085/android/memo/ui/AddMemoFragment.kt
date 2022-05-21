@@ -47,10 +47,9 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
                 binding.editMemoTitle.editText?.text.toString(),
                 binding.editMemoContent.editText?.text.toString()
             )
+            val action = AddMemoFragmentDirections.actionAddMemoFragmentToHomeFragment()
+            findNavController().navigate(action)
         }
-
-        val action = AddMemoFragmentDirections.actionAddMemoFragmentToHomeFragment()
-        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {
