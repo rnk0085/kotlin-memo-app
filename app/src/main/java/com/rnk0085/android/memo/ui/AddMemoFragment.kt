@@ -17,6 +17,11 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
     private var _binding: FragmentAddMemoBinding? = null
     private val binding get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,7 +32,7 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // TODO
+
     }
 
     private fun isEntryValid(): Boolean {
