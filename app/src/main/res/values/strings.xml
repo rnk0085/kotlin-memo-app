@@ -7,4 +7,7 @@
     <string name="title">タイトル</string>
     <string name="content">内容</string>
     <string name="save">保存</string>
+    <string name="delete">削除</string>
+
+    <string name="save_dialog_title">保存しますか？</string>
 </resources>
