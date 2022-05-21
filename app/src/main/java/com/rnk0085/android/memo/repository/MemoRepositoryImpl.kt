@@ -19,8 +19,8 @@ class MemoRepositoryImpl @Inject constructor(
         val date = Date()
 
         val memo = Memo(
-            memoTitle = memoTitle,
-            memoContents = memoContent,
+            title = memoTitle,
+            content = memoContent,
             createdAt = date,
             updatedAt = date
         )

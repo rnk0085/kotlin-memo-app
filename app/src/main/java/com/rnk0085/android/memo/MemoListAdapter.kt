@@ -17,7 +17,7 @@ class MemoListAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(memo: Memo) {
             binding.apply {
-                memoTitle.text = memo.memoTitle
+                memoTitle.text = memo.title
             }
         }
     }

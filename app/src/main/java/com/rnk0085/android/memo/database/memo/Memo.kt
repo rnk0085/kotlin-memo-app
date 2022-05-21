@@ -11,10 +11,10 @@ data class Memo(
     val id: Int = 0,
 
     @ColumnInfo(name = "title")
-    val memoTitle: String,
+    val title: String = "タイトル無し",
 
     @ColumnInfo(name = "contents")
-    val memoContents: String,
+    val content: String = "",
 
     @ColumnInfo(name = "created_at")
     val createdAt: Date,
