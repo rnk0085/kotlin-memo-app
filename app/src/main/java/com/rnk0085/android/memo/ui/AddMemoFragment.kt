@@ -7,11 +7,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.rnk0085.android.memo.R
 import com.rnk0085.android.memo.databinding.FragmentAddMemoBinding
+import com.rnk0085.android.memo.utils.SaveDialogFragment
 import com.rnk0085.android.memo.viewModels.AddMemoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
+class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
+    SaveDialogFragment.SaveDialogListener{
     private val viewModel: AddMemoViewModel by viewModels()
 
     private var _binding: FragmentAddMemoBinding? = null
@@ -70,5 +72,13 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onDialogPositiveClick() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onDialogNegativeClick() {
+        TODO("Not yet implemented")
     }
 }
