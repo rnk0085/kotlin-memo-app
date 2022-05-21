@@ -1,4 +1,4 @@
-package com.rnk0085.android.memo
+package com.rnk0085.android.memo.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.rnk0085.android.memo.MemoListAdapter
+import com.rnk0085.android.memo.R
 import com.rnk0085.android.memo.databinding.FragmentHomeBinding
 import com.rnk0085.android.memo.viewModels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.rnk0085.android.memo
+package com.rnk0085.android.memo.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.rnk0085.android.memo.R
 import com.rnk0085.android.memo.databinding.FragmentAddMemoBinding
 import com.rnk0085.android.memo.viewModels.AddMemoViewModel
 import dagger.hilt.android.AndroidEntryPoint
