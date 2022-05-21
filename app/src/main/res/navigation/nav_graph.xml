@@ -20,5 +20,10 @@
         android:name="com.rnk0085.android.memo.AddMemoFragment"
         android:label="fragment_create"
         tools:layout="@layout/fragment_add_memo" >
+        <action
+            android:id="@+id/action_addMemoFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
