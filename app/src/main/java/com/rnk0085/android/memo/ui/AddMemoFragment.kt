@@ -75,10 +75,12 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
     }
 
     override fun onDialogPositiveClick() {
-        TODO("Not yet implemented")
+        // 保存
+        addNewMemo()
     }
 
     override fun onDialogNegativeClick() {
+        // 削除
         TODO("Not yet implemented")
     }
 }
