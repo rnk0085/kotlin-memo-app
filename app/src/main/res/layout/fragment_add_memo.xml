@@ -22,7 +22,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="タイトル" />
+            android:hint="タイトル"
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -45,6 +46,7 @@
             android:layout_height="match_parent"
             android:gravity="top|left"
             android:hint="内容"
+            android:inputType="textMultiLine"
             android:scrollbarAlwaysDrawVerticalTrack="false"
             android:singleLine="false" />
     </com.google.android.material.textfield.TextInputLayout>
