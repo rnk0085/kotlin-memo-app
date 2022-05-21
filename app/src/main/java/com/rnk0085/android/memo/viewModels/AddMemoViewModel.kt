@@ -16,7 +16,8 @@ class AddMemoViewModel @Inject constructor(
     fun addNewMemo(memoTitle: String, memoContent: String) {
         viewModelScope.launch {
             try {
-                memoRepository.insert(memoTitle, memoContent)
+                if (memoTitle == "") memoRepository.insert("タイトル無し", memoContent)
+                else memoRepository.insert(memoTitle, memoContent)
             } catch (e: Exception) {
                 // TODO：エラー処理
             }
@@ -24,7 +25,7 @@ class AddMemoViewModel @Inject constructor(
     }
 
     fun isEntryValid(memoTitle: String, memoContent: String) : Boolean {
-        if (memoTitle.isBlank() || memoContent.isBlank()) return false
+        if (memoTitle.isBlank() && memoContent.isBlank()) return false
 
         return true
     }
