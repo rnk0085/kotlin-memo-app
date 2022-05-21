@@ -4,7 +4,7 @@ import com.rnk0085.android.memo.database.memo.Memo
 import kotlinx.coroutines.flow.Flow
 
 interface MemoRepository {
-    suspend fun insert(memo: Memo)
+    suspend fun insert(memoTitle: String, memoContent: String)
 
     fun getAllMemos(): Flow<List<Memo>>
 }
