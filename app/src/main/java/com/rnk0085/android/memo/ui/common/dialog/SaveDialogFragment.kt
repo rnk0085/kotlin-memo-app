@@ -36,4 +36,10 @@ class SaveDialogFragment : DialogFragment() {
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }
+
+    companion object {
+        val TAG: String = SaveDialogFragment::class.java.name
+
+        fun newInstance() = SaveDialogFragment()
+    }
 }

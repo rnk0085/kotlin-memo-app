@@ -116,8 +116,8 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
     }
 
     private fun showSaveDialog() {
-        val saveDialogFragment = SaveDialogFragment()
-        saveDialogFragment.show(childFragmentManager, SAVE_DIALOG)
+        SaveDialogFragment.newInstance()
+            .show(childFragmentManager, SaveDialogFragment.TAG)
     }
 
     override fun onSaveDialogPositiveClick() {
@@ -149,9 +149,5 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
     override fun onErrorDialogCancel() {
         // エラーダイアログを閉じる
         viewModel.errorCancelled()
-    }
-
-    companion object {
-        const val SAVE_DIALOG = "SaveDialogFragment"
     }
 }
