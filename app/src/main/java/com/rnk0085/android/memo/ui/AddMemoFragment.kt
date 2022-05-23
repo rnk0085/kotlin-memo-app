@@ -3,8 +3,6 @@ package com.rnk0085.android.memo.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.rnk0085.android.memo.R
@@ -68,8 +66,7 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_add_memo -> {
-                // addNewMemo()
-                showDialog()
+                addNewMemo()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -83,7 +80,7 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
 
     private fun showDialog() {
         val saveDialogFragment = SaveDialogFragment()
-        saveDialogFragment.show(childFragmentManager, "test")
+        saveDialogFragment.show(childFragmentManager, SAVE_DIALOG)
     }
 
     override fun onDialogPositiveClick() {
