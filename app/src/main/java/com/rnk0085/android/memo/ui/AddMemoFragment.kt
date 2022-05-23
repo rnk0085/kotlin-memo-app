@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.rnk0085.android.memo.R
 import com.rnk0085.android.memo.databinding.FragmentAddMemoBinding
+import com.rnk0085.android.memo.utils.ErrorDialogFragment
 import com.rnk0085.android.memo.utils.SaveDialogFragment
 import com.rnk0085.android.memo.viewModels.AddMemoUiState
 import com.rnk0085.android.memo.viewModels.AddMemoViewModel
@@ -19,7 +20,9 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
-    SaveDialogFragment.SaveDialogListener {
+    SaveDialogFragment.SaveDialogListener,
+    ErrorDialogFragment.ErrorDialogListener
+{
     private val viewModel: AddMemoViewModel by viewModels()
 
     private var _binding: FragmentAddMemoBinding? = null
@@ -129,5 +132,17 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
 
     companion object {
         const val SAVE_DIALOG = "SaveDialogFragment"
+    }
+
+    override fun onErrorDialogPositiveClick() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onErrorDialogNegativeClick() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onErrorDialogCancel() {
+        TODO("Not yet implemented")
     }
 }
