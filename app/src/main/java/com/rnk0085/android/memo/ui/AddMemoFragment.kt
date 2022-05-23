@@ -2,6 +2,7 @@ package com.rnk0085.android.memo.ui
 
 import android.os.Bundle
 import android.view.*
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -30,6 +31,11 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAddMemoBinding.inflate(inflater, container, false)
+
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            onBackButtonClick()
+        }
+
         return binding.root
     }
 
@@ -57,6 +63,11 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
     private fun navigation() {
         val action = AddMemoFragmentDirections.actionAddMemoFragmentToHomeFragment()
         findNavController().navigate(action)
+    }
+
+    private fun onBackButtonClick() {
+        if (isEntryValid()) showDialog()
+        else navigation()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
