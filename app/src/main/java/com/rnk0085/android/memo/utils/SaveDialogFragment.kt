@@ -17,15 +17,16 @@ class SaveDialogFragment : DialogFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        listener = context as? SaveDialogListener
-            ?: throw ClassCastException("$context must implement ErrorDialogListener")
+        val fragment = parentFragment
+        listener = fragment as? SaveDialogListener
+            ?: throw ClassCastException("$context must implement SaveDialogListener")
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             builder
-                .setTitle(R.string.save_dialog_title)
+                .setMessage(R.string.save_dialog_title)
                 .setPositiveButton(R.string.save) { _, _ ->
                     listener.onDialogPositiveClick()
                 }

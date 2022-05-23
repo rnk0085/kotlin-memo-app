@@ -3,6 +3,8 @@ package com.rnk0085.android.memo.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.rnk0085.android.memo.R
@@ -13,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
-    SaveDialogFragment.SaveDialogListener{
+    SaveDialogFragment.SaveDialogListener {
     private val viewModel: AddMemoViewModel by viewModels()
 
     private var _binding: FragmentAddMemoBinding? = null
@@ -66,7 +68,8 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_add_memo -> {
-                addNewMemo()
+                // addNewMemo()
+                showDialog()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -78,6 +81,11 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
         _binding = null
     }
 
+    private fun showDialog() {
+        val saveDialogFragment = SaveDialogFragment()
+        saveDialogFragment.show(childFragmentManager, "test")
+    }
+
     override fun onDialogPositiveClick() {
         // 保存
         addNewMemo()
@@ -86,5 +94,9 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
     override fun onDialogNegativeClick() {
         // 削除
         navigation()
+    }
+
+    companion object {
+        const val SAVE_DIALOG = "SaveDialogFragment"
     }
 }
