@@ -28,6 +28,10 @@ class AddMemoViewModel @Inject constructor(
         }
     }
 
+    fun errorCancelled() {
+        _uiState.value = AddMemoUiState.Initial
+    }
+
     fun isEntryValid(memoTitle: String, memoContent: String) : Boolean {
         if (memoTitle.isBlank() && memoContent.isBlank()) return false
 

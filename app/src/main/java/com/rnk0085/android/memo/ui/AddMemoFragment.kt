@@ -130,19 +130,22 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
         navigation()
     }
 
-    companion object {
-        const val SAVE_DIALOG = "SaveDialogFragment"
-    }
-
     override fun onErrorDialogPositiveClick() {
-        TODO("Not yet implemented")
+        // 再試行
+        addNewMemo()
     }
 
     override fun onErrorDialogNegativeClick() {
-        TODO("Not yet implemented")
+        // エラーダイアログを閉じる
+        viewModel.errorCancelled()
     }
 
     override fun onErrorDialogCancel() {
-        TODO("Not yet implemented")
+        // エラーダイアログを閉じる
+        viewModel.errorCancelled()
+    }
+
+    companion object {
+        const val SAVE_DIALOG = "SaveDialogFragment"
     }
 }
