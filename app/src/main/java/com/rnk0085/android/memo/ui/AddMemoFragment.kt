@@ -11,8 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.rnk0085.android.memo.R
 import com.rnk0085.android.memo.databinding.FragmentAddMemoBinding
-import com.rnk0085.android.memo.utils.ErrorDialogFragment
-import com.rnk0085.android.memo.utils.SaveDialogFragment
+import com.rnk0085.android.memo.ui.common.dialog.ErrorDialogFragment
+import com.rnk0085.android.memo.ui.common.dialog.SaveDialogFragment
 import com.rnk0085.android.memo.viewModels.AddMemoUiState
 import com.rnk0085.android.memo.viewModels.AddMemoViewModel
 import dagger.hilt.android.AndroidEntryPoint

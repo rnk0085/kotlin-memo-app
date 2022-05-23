@@ -1,4 +1,4 @@
-package com.rnk0085.android.memo.utils
+package com.rnk0085.android.memo.ui.common.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog
