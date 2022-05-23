@@ -5,12 +5,17 @@ import android.view.*
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.rnk0085.android.memo.R
 import com.rnk0085.android.memo.databinding.FragmentAddMemoBinding
 import com.rnk0085.android.memo.utils.SaveDialogFragment
+import com.rnk0085.android.memo.viewModels.AddMemoUiState
 import com.rnk0085.android.memo.viewModels.AddMemoViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
@@ -40,7 +45,20 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        lifecycleScope.launch {
+            viewModel.uiState.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
+                .collect { uiState ->
+                    when (uiState) {
+                        is AddMemoUiState.Initial -> {}
+                        is AddMemoUiState.Success -> {
+                            navigation()
+                        }
+                        is AddMemoUiState.Failure -> {
+                            // TODO：エラーダイアログ表示
+                        }
+                    }
+                }
+        }
     }
 
     private fun isEntryValid(): Boolean {
@@ -56,7 +74,6 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
                 binding.editMemoTitle.editText?.text.toString(),
                 binding.editMemoContent.editText?.text.toString()
             )
-            navigation()
         }
     }
 
