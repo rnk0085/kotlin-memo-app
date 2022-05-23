@@ -57,7 +57,7 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
                             navigation()
                         }
                         is AddMemoUiState.Failure -> {
-                            // TODO：エラーダイアログ表示
+                            showErrorDialog()
                         }
                     }
                 }
@@ -130,8 +130,14 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
         navigation()
     }
 
+    private fun showErrorDialog() {
+        ErrorDialogFragment.newInstance()
+            .show(childFragmentManager, ErrorDialogFragment.TAG)
+    }
+
     override fun onErrorDialogPositiveClick() {
         // 再試行
+        viewModel.errorCancelled()
         addNewMemo()
     }
 

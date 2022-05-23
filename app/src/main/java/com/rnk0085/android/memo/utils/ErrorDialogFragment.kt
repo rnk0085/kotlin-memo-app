@@ -42,4 +42,10 @@ class ErrorDialogFragment : DialogFragment() {
         listener.onErrorDialogCancel()
         super.onCancel(dialog)
     }
+
+    companion object {
+        val TAG: String = ErrorDialogFragment::class.java.name
+
+        fun newInstance() = ErrorDialogFragment()
+    }
 }
