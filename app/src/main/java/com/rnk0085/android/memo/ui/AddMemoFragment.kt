@@ -86,7 +86,7 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
     }
 
     private fun onBackButtonClick() {
-        if (isEntryValid()) showDialog()
+        if (isEntryValid()) showSaveDialog()
         else navigation()
     }
 
@@ -115,7 +115,7 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
         _binding = null
     }
 
-    private fun showDialog() {
+    private fun showSaveDialog() {
         val saveDialogFragment = SaveDialogFragment()
         saveDialogFragment.show(childFragmentManager, SAVE_DIALOG)
     }
