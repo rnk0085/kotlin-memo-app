@@ -117,12 +117,12 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
         saveDialogFragment.show(childFragmentManager, SAVE_DIALOG)
     }
 
-    override fun onDialogPositiveClick() {
+    override fun onSaveDialogPositiveClick() {
         // 保存
         addNewMemo()
     }
 
-    override fun onDialogNegativeClick() {
+    override fun onSaveDialogNegativeClick() {
         // 削除
         navigation()
     }

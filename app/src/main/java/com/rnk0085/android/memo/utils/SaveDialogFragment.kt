@@ -11,8 +11,8 @@ class SaveDialogFragment : DialogFragment() {
     private lateinit var listener: SaveDialogListener
 
     interface SaveDialogListener {
-        fun onDialogPositiveClick()
-        fun onDialogNegativeClick()
+        fun onSaveDialogPositiveClick()
+        fun onSaveDialogNegativeClick()
     }
 
     override fun onAttach(context: Context) {
@@ -26,12 +26,12 @@ class SaveDialogFragment : DialogFragment() {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             builder
-                .setMessage(R.string.save_dialog_title)
+                .setMessage(R.string.save_dialog_message)
                 .setPositiveButton(R.string.save) { _, _ ->
-                    listener.onDialogPositiveClick()
+                    listener.onSaveDialogPositiveClick()
                 }
                 .setNegativeButton(R.string.delete) { _, _ ->
-                    listener.onDialogNegativeClick()
+                    listener.onSaveDialogNegativeClick()
                 }
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
