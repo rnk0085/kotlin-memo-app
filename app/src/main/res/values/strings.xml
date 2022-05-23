@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Memo</string>
 
     <string name="home_fragment_label">メモ一覧</string>
@@ -8,6 +8,9 @@
     <string name="content">内容</string>
     <string name="save">保存</string>
     <string name="delete">削除</string>
+    <string name="retry" tools:ignore="PrivateResource">RETRY</string>
+    <string name="cancel" tools:ignore="ButtonCase">CANCEL</string>
 
-    <string name="save_dialog_title">保存しますか？</string>
+    <string name="save_dialog_message">保存しますか？</string>
+    <string name="error_dialog_message">エラーが発生しました</string>
 </resources>
