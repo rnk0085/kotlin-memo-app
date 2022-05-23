@@ -76,7 +76,13 @@ class AddMemoFragment : Fragment(R.layout.fragment_add_memo),
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            android.R.id.home -> {
+                // Upボタンクリック時
+                onBackButtonClick()
+                true
+            }
             R.id.action_add_memo -> {
+                // 保存ボタンクリック時
                 addNewMemo()
                 true
             }
