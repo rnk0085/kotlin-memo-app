@@ -15,30 +15,28 @@ class HomeViewModel @Inject constructor(
     private val memoRepository: MemoRepository
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState(isLoading = true))
+    private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState.Initial)
     val uiState: StateFlow<HomeUiState> = _uiState
 
     init {
         viewModelScope.launch {
+            _uiState.value = HomeUiState.Loading
             memoRepository.getAllMemos()
                 .catch { exception ->
-                    _uiState.update {
-                        it.copy(isError = true)
-                    }
+                    _uiState.value = HomeUiState.Error
 
                     Log.d("HomeViewModel", "$exception")
                 }
                 .collect { memos ->
-                    _uiState.update {
-                        it.copy(memos = memos)
-                    }
+                    _uiState.value = HomeUiState.Success(memos)
                 }
         }
     }
 }
 
-data class HomeUiState(
-    val memos: List<Memo> = emptyList(),
-    val isLoading: Boolean = false,
-    val isError: Boolean = false
-)
+sealed class HomeUiState {
+    object Initial : HomeUiState()
+    object Loading : HomeUiState()
+    data class Success(val memos: List<Memo>) : HomeUiState()
+    object Error : HomeUiState()
+}
