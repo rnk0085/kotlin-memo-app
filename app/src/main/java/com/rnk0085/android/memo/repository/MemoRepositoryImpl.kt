@@ -5,6 +5,7 @@ import com.rnk0085.android.memo.database.memo.Memo
 import com.rnk0085.android.memo.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import java.util.*
 import javax.inject.Inject
@@ -30,7 +31,7 @@ class MemoRepositoryImpl @Inject constructor(
         memoDataSource.insert(memo)
     }
 
-    override fun getAllMemos(): Flow<List<Memo>> {
-        return memoDataSource.getAllMemos()
-    }
+    override fun getAllMemos(): Flow<List<Memo>> =
+        memoDataSource.getAllMemos()
+            .flowOn(ioDispatcher)
 }
