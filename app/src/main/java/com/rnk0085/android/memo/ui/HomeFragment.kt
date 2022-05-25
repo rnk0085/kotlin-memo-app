@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rnk0085.android.memo.MemoListAdapter
 import com.rnk0085.android.memo.R
 import com.rnk0085.android.memo.databinding.FragmentHomeBinding
+import com.rnk0085.android.memo.viewModels.HomeUiState
 import com.rnk0085.android.memo.viewModels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -53,7 +54,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         lifecycleScope.launch {
             viewModel.uiState.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
                 .collect { uiState ->
-                    adapter.submitList(uiState.memos)
+                    when (uiState) {
+                        is HomeUiState.Initial -> {}
+                        is HomeUiState.Loading -> {}
+                        is HomeUiState.Success -> adapter.submitList(uiState.memos)
+                        is HomeUiState.Error -> {}
+                    }
                 }
         }
 
