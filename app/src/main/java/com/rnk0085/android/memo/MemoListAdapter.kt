@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.rnk0085.android.memo.database.memo.Memo
 import com.rnk0085.android.memo.databinding.MemoItemBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MemoListAdapter(
     private val onItemClicked: (Memo) -> Unit
@@ -16,8 +18,12 @@ class MemoListAdapter(
         private var binding: MemoItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(memo: Memo) {
+            val sdf = SimpleDateFormat("yyyy/MM/dd(EEE)", Locale.JAPAN)
+            sdf.timeZone = TimeZone.getTimeZone("Asia/Tokyo")
+
             binding.apply {
                 memoTitle.text = memo.title
+                dateText.text = sdf.format(memo.updatedAt)
             }
         }
     }
