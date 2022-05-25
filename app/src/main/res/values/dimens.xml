@@ -2,4 +2,7 @@
 <resources>
     <dimen name="memo_item_horizontal_padding">16dp</dimen>
     <dimen name="memo_item_vertical_padding">8dp</dimen>
+
+    <dimen name="edit_memo_title_margin">16dp</dimen>
+    <dimen name="edit_memo_content_margin">16dp</dimen>
 </resources>
