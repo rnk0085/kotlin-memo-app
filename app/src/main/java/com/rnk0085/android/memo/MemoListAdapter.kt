@@ -25,7 +25,7 @@ class MemoListAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): MemoListAdapter.MemoViewHolder {
+    ): MemoViewHolder {
         return MemoViewHolder(
             MemoItemBinding.inflate(
                 LayoutInflater.from(parent.context)
@@ -33,7 +33,7 @@ class MemoListAdapter(
         )
     }
 
-    override fun onBindViewHolder(holder: MemoListAdapter.MemoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MemoViewHolder, position: Int) {
         val current = getItem(position)
 
         holder.itemView.setOnClickListener {
