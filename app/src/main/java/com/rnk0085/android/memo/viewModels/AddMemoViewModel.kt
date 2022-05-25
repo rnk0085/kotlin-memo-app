@@ -19,8 +19,7 @@ class AddMemoViewModel @Inject constructor(
     fun addNewMemo(memoTitle: String, memoContent: String) {
         viewModelScope.launch {
             try {
-                if (memoTitle == "") memoRepository.insert("タイトル無し", memoContent)
-                else memoRepository.insert(memoTitle, memoContent)
+                memoRepository.insert(memoTitle, memoContent)
                 _uiState.value = AddMemoUiState.Success
             } catch (e: Exception) {
                 _uiState.value = AddMemoUiState.Failure

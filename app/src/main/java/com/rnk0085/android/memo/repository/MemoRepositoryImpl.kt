@@ -18,8 +18,10 @@ class MemoRepositoryImpl @Inject constructor(
     override suspend fun insert(memoTitle: String, memoContent: String) = withContext(ioDispatcher) {
         val date = Date()
 
+        val title = if (memoTitle == "") "タイトル無し" else memoTitle
+
         val memo = Memo(
-            title = memoTitle,
+            title = title,
             content = memoContent,
             createdAt = date,
             updatedAt = date
