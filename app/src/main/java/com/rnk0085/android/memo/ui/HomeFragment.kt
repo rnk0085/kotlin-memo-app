@@ -17,13 +17,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rnk0085.android.memo.MemoListAdapter
 import com.rnk0085.android.memo.R
 import com.rnk0085.android.memo.databinding.FragmentHomeBinding
+import com.rnk0085.android.memo.ui.common.dialog.ErrorDialogFragment
 import com.rnk0085.android.memo.viewModels.HomeUiState
 import com.rnk0085.android.memo.viewModels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home),
+        ErrorDialogFragment.ErrorDialogListener
+{
     private val viewModel: HomeViewModel by viewModels()
 
     private var _binding: FragmentHomeBinding? = null
@@ -86,5 +89,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onErrorDialogPositiveClick() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onErrorDialogNegativeClick() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onErrorDialogCancel() {
+        TODO("Not yet implemented")
     }
 }
