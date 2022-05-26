@@ -1,7 +1,7 @@
 package com.rnk0085.android.memo.repository
 
 import com.rnk0085.android.memo.database.datasource.MemoDataSource
-import com.rnk0085.android.memo.database.memo.Memo
+import com.rnk0085.android.memo.database.memo.MemoEntity
 import com.rnk0085.android.memo.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -21,17 +21,17 @@ class MemoRepositoryImpl @Inject constructor(
 
         val title = if (memoTitle == "") "タイトル無し" else memoTitle
 
-        val memo = Memo(
+        val memoEntity = MemoEntity(
             title = title,
             content = memoContent,
             createdAt = date,
             updatedAt = date
         )
 
-        memoDataSource.insert(memo)
+        memoDataSource.insert(memoEntity)
     }
 
-    override fun getAllMemos(): Flow<List<Memo>> =
+    override fun getAllMemos(): Flow<List<MemoEntity>> =
         memoDataSource.getAllMemos()
             .flowOn(ioDispatcher)
 }

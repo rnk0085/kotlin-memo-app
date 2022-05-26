@@ -3,7 +3,7 @@ package com.rnk0085.android.memo.viewModels
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rnk0085.android.memo.database.memo.Memo
+import com.rnk0085.android.memo.database.memo.MemoEntity
 import com.rnk0085.android.memo.repository.MemoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -41,6 +41,6 @@ class HomeViewModel @Inject constructor(
 sealed class HomeUiState {
     object Initial : HomeUiState()
     object Loading : HomeUiState()
-    data class Success(val memos: List<Memo>) : HomeUiState()
+    data class Success(val memoEntities: List<MemoEntity>) : HomeUiState()
     object Error : HomeUiState()
 }

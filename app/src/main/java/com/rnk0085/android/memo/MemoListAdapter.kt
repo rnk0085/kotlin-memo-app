@@ -5,25 +5,25 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.rnk0085.android.memo.database.memo.Memo
+import com.rnk0085.android.memo.database.memo.MemoEntity
 import com.rnk0085.android.memo.databinding.MemoItemBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MemoListAdapter(
-    private val onItemClicked: (Memo) -> Unit
-) : ListAdapter<Memo, MemoListAdapter.MemoViewHolder>(DiffCallback) {
+    private val onItemClicked: (MemoEntity) -> Unit
+) : ListAdapter<MemoEntity, MemoListAdapter.MemoViewHolder>(DiffCallback) {
 
     class MemoViewHolder(
         private var binding: MemoItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(memo: Memo) {
+        fun bind(memoEntity: MemoEntity) {
             val sdf = SimpleDateFormat("yyyy/MM/dd(EEE)", Locale.JAPAN)
             sdf.timeZone = TimeZone.getTimeZone("Asia/Tokyo")
 
             binding.apply {
-                memoTitle.text = memo.title
-                dateText.text = sdf.format(memo.updatedAt)
+                memoTitle.text = memoEntity.title
+                dateText.text = sdf.format(memoEntity.updatedAt)
             }
         }
     }
@@ -49,12 +49,12 @@ class MemoListAdapter(
         holder.bind(current)
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<Memo>() {
-        override fun areItemsTheSame(oldItem: Memo, newItem: Memo): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<MemoEntity>() {
+        override fun areItemsTheSame(oldItem: MemoEntity, newItem: MemoEntity): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Memo, newItem: Memo): Boolean {
+        override fun areContentsTheSame(oldItem: MemoEntity, newItem: MemoEntity): Boolean {
             return oldItem == newItem
         }
 

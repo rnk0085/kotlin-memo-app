@@ -68,7 +68,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),
                         }
                         is HomeUiState.Success -> {
                             binding.progressBar.isGone = true
-                            adapter.submitList(uiState.memos)
+                            adapter.submitList(uiState.memoEntities)
                         }
                         is HomeUiState.Error -> {
                             binding.progressBar.isGone = true
