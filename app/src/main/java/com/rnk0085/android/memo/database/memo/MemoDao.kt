@@ -8,6 +8,6 @@ interface MemoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(memo: Memo)
 
-    @Query("SELECT * FROM memo ORDER BY updated_at ASC")
+    @Query("SELECT * FROM memo ORDER BY updated_at DESC")
     fun getAllMemos(): Flow<List<Memo>>
 }
