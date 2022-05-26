@@ -98,14 +98,15 @@ class HomeFragment : Fragment(R.layout.fragment_home),
     }
 
     override fun onErrorDialogPositiveClick() {
-        TODO("Not yet implemented")
+        // TODO：「再読み込み」処理を作成
+        viewModel.dialogShown()
     }
 
     override fun onErrorDialogNegativeClick() {
-        TODO("Not yet implemented")
+        viewModel.dialogShown()
     }
 
     override fun onErrorDialogCancel() {
-        TODO("Not yet implemented")
+        viewModel.dialogShown()
     }
 }

@@ -32,6 +32,10 @@ class HomeViewModel @Inject constructor(
                 }
         }
     }
+
+    fun dialogShown() {
+        _uiState.value = HomeUiState.Initial
+    }
 }
 
 sealed class HomeUiState {
