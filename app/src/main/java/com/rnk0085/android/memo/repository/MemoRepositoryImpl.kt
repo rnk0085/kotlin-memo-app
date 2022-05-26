@@ -1,7 +1,7 @@
 package com.rnk0085.android.memo.repository
 
 import com.rnk0085.android.memo.database.datasource.MemoDataSource
-import com.rnk0085.android.memo.database.memo.MemoEntity
+import com.rnk0085.android.memo.database.entity.MemoEntity
 import com.rnk0085.android.memo.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow

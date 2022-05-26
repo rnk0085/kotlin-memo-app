@@ -1,4 +1,4 @@
-package com.rnk0085.android.memo.database.memo
+package com.rnk0085.android.memo.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

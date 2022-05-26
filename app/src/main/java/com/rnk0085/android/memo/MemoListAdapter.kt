@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.rnk0085.android.memo.database.memo.MemoEntity
+import com.rnk0085.android.memo.database.entity.MemoEntity
 import com.rnk0085.android.memo.databinding.MemoItemBinding
 import java.text.SimpleDateFormat
 import java.util.*
