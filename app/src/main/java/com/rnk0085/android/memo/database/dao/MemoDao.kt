@@ -1,6 +1,7 @@
-package com.rnk0085.android.memo.database.memo
+package com.rnk0085.android.memo.database.dao
 
 import androidx.room.*
+import com.rnk0085.android.memo.database.memo.MemoEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

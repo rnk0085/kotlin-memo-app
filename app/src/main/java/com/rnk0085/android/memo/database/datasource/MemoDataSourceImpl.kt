@@ -1,7 +1,7 @@
 package com.rnk0085.android.memo.database.datasource
 
 import com.rnk0085.android.memo.database.memo.MemoEntity
-import com.rnk0085.android.memo.database.memo.MemoDao
+import com.rnk0085.android.memo.database.dao.MemoDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

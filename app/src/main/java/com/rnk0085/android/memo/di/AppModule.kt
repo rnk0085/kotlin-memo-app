@@ -2,7 +2,7 @@ package com.rnk0085.android.memo.di
 
 import android.content.Context
 import androidx.room.Room
-import com.rnk0085.android.memo.database.memo.MemoDao
+import com.rnk0085.android.memo.database.dao.MemoDao
 import com.rnk0085.android.memo.database.memo.AppDatabase
 import dagger.Module
 import dagger.Provides
