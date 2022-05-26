@@ -72,6 +72,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),
                         }
                         is HomeUiState.Error -> {
                             binding.progressBar.isGone = true
+                            showErrorDialog()
                         }
                     }
                 }
@@ -84,6 +85,11 @@ class HomeFragment : Fragment(R.layout.fragment_home),
         val action = HomeFragmentDirections
             .actionHomeFragmentToCreateFragment()
         view?.findNavController()?.navigate(action)
+    }
+
+    private fun showErrorDialog() {
+        ErrorDialogFragment.newInstance()
+            .show(childFragmentManager, ErrorDialogFragment.TAG)
     }
 
     override fun onDestroyView() {
