@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/addMemoFragment"
-        android:name="com.rnk0085.android.memo.ui.AddMemoFragment"
+        android:name="com.rnk0085.android.memo.ui.addmemo.AddMemoFragment"
         android:label="@string/add_memo_fragment_label"
         tools:layout="@layout/fragment_add_memo" >
         <action
