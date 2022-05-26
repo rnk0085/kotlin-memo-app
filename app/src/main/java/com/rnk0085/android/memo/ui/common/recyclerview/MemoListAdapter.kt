@@ -1,4 +1,4 @@
-package com.rnk0085.android.memo
+package com.rnk0085.android.memo.ui.common.recyclerview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
