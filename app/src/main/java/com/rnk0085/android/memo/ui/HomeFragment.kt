@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -55,10 +57,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             viewModel.uiState.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
                 .collect { uiState ->
                     when (uiState) {
-                        is HomeUiState.Initial -> {}
-                        is HomeUiState.Loading -> {}
-                        is HomeUiState.Success -> adapter.submitList(uiState.memos)
-                        is HomeUiState.Error -> {}
+                        is HomeUiState.Initial -> {
+                            binding.progressBar.isGone = true
+                        }
+                        is HomeUiState.Loading -> {
+                            binding.progressBar.isVisible = true
+                        }
+                        is HomeUiState.Success -> {
+                            binding.progressBar.isGone = true
+                            adapter.submitList(uiState.memos)
+                        }
+                        is HomeUiState.Error -> {
+                            binding.progressBar.isGone = true
+                        }
                     }
                 }
         }
