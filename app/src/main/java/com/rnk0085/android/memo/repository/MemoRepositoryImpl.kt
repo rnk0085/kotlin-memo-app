@@ -34,4 +34,8 @@ class MemoRepositoryImpl @Inject constructor(
     override fun getAllMemos(): Flow<List<MemoEntity>> =
         memoDataSource.getAllMemos()
             .flowOn(ioDispatcher)
+
+    override fun getMemo(id: Int): Flow<MemoEntity> {
+        TODO("Not yet implemented")
+    }
 }
