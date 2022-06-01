@@ -13,4 +13,6 @@
 
     <string name="save_dialog_message">保存しますか？</string>
     <string name="error_dialog_message">エラーが発生しました</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
