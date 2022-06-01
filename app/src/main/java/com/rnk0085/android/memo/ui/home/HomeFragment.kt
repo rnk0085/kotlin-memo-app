@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rnk0085.android.memo.ui.common.recyclerview.MemoListAdapter
@@ -45,7 +46,8 @@ class HomeFragment : Fragment(R.layout.fragment_home),
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = MemoListAdapter {
-            // TODO: 詳細ページへの遷移
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(it.id)
+            this.findNavController().navigate(action)
         }
 
         val dividerItemDecoration = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
