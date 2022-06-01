@@ -2,8 +2,8 @@ package com.rnk0085.android.memo.di
 
 import android.content.Context
 import androidx.room.Room
-import com.rnk0085.android.memo.database.memo.MemoDao
-import com.rnk0085.android.memo.database.memo.MemoDatabase
+import com.rnk0085.android.memo.database.dao.MemoDao
+import com.rnk0085.android.memo.database.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,10 +19,10 @@ object AppModule {
     @Provides
     fun provideMemoDatabase(
         @ApplicationContext context: Context
-    ) : MemoDatabase {
+    ) : AppDatabase {
         return Room.databaseBuilder(
             context,
-            MemoDatabase::class.java,
+            AppDatabase::class.java,
             "memo_database"
         )
             .fallbackToDestructiveMigration()
@@ -32,6 +32,6 @@ object AppModule {
     @Singleton
     @Provides
     fun provideMemoDao(
-        database: MemoDatabase
+        database: AppDatabase
     ) : MemoDao = database.memoDao()
 }

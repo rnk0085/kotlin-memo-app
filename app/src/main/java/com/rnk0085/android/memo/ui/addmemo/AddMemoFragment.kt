@@ -1,4 +1,4 @@
-package com.rnk0085.android.memo.ui
+package com.rnk0085.android.memo.ui.addmemo
 
 import android.os.Bundle
 import android.view.*

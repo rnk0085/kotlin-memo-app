@@ -1,4 +1,4 @@
-package com.rnk0085.android.memo.ui
+package com.rnk0085.android.memo.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rnk0085.android.memo.MemoListAdapter
+import com.rnk0085.android.memo.ui.common.recyclerview.MemoListAdapter
 import com.rnk0085.android.memo.R
 import com.rnk0085.android.memo.databinding.FragmentHomeBinding
 import com.rnk0085.android.memo.ui.common.dialog.ErrorDialogFragment
@@ -68,7 +68,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),
                         }
                         is HomeUiState.Success -> {
                             binding.progressBar.isGone = true
-                            adapter.submitList(uiState.memos)
+                            adapter.submitList(uiState.memoEntities)
                         }
                         is HomeUiState.Error -> {
                             binding.progressBar.isGone = true

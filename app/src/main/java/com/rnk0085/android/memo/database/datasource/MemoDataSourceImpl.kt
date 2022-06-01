@@ -1,7 +1,7 @@
 package com.rnk0085.android.memo.database.datasource
 
-import com.rnk0085.android.memo.database.memo.Memo
-import com.rnk0085.android.memo.database.memo.MemoDao
+import com.rnk0085.android.memo.database.entity.MemoEntity
+import com.rnk0085.android.memo.database.dao.MemoDao
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -10,8 +10,8 @@ import javax.inject.Singleton
 class MemoDataSourceImpl @Inject constructor(
     private val memoDao: MemoDao
 ) : MemoDataSource {
-    override suspend fun insert(memo: Memo) = memoDao.insert(memo)
+    override suspend fun insert(memoEntity: MemoEntity) = memoDao.insert(memoEntity)
 
-    override fun getAllMemos(): Flow<List<Memo>> = memoDao.getAllMemos()
+    override fun getAllMemos(): Flow<List<MemoEntity>> = memoDao.getAllMemos()
 
 }

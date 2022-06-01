@@ -1,4 +1,4 @@
-package com.rnk0085.android.memo.database.memo
+package com.rnk0085.android.memo.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(tableName = "memo")
-data class Memo(
+data class MemoEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
 
