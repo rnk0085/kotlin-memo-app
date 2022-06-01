@@ -1,10 +1,40 @@
 package com.rnk0085.android.memo.ui.detail
 
-class DetailViewModel {
+import android.util.Log
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.rnk0085.android.memo.database.entity.MemoEntity
+import com.rnk0085.android.memo.repository.MemoRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+class DetailViewModel @Inject constructor(
+    private val memoRepository: MemoRepository
+) : ViewModel() {
+
+    private val _uiState = MutableStateFlow<DetailUiState>(DetailUiState.Initial)
+    val uiState: StateFlow<DetailUiState> = _uiState
+
+    fun getMemo(id: Int) {
+        viewModelScope.launch {
+            memoRepository.getMemo(id)
+                .catch { exception ->
+                    _uiState.value = DetailUiState.Error
+                    Log.e("DetailViewModel", "$exception")
+                }
+                .collect { memo ->
+                    _uiState.value = DetailUiState.Success(memo)
+                }
+        }
+    }
 }
 
 sealed class DetailUiState {
     object Initial : DetailUiState()
-    object Success : DetailUiState()
+    data class Success(val memo: MemoEntity) : DetailUiState()
     object Error : DetailUiState()
 }
