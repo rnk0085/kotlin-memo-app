@@ -7,4 +7,6 @@ interface MemoDataSource {
     suspend fun insert(memoEntity: MemoEntity)
 
     fun getAllMemos(): Flow<List<MemoEntity>>
+
+    fun getMemo(id: Int): Flow<MemoEntity>
 }
