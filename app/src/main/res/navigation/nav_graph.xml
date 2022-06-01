@@ -14,10 +14,6 @@
             android:id="@+id/action_homeFragment_to_createFragment"
             app:destination="@id/addMemoFragment"
             app:popUpToInclusive="false" />
-        <argument
-            android:name="memo_id"
-            android:defaultValue="-1"
-            app:argType="integer" />
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
@@ -37,5 +33,10 @@
         android:id="@+id/detailFragment"
         android:name="com.rnk0085.android.memo.ui.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="memo_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>
