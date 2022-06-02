@@ -11,4 +11,10 @@ interface MemoDao {
 
     @Query("SELECT * FROM memo ORDER BY updated_at DESC")
     fun getAllMemos(): Flow<List<MemoEntity>>
+
+    @Query("SELECT * FROM memo WHERE id = :id")
+    fun getMemo(id: Int): Flow<MemoEntity>
+
+    @Delete
+    suspend fun delete(memoEntity: MemoEntity)
 }

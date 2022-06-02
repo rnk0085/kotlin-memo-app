@@ -6,9 +6,11 @@
         <entry key="..\:/AndroidStudio/memo-app/Memo/app/src/main/res/layout/activity_main.xml" value="0.18206521739130435" />
         <entry key="..\:/AndroidStudio/memo-app/Memo/app/src/main/res/layout/fragment_add_memo.xml" value="0.13307984790874525" />
         <entry key="..\:/AndroidStudio/memo-app/Memo/app/src/main/res/layout/fragment_create.xml" value="0.264" />
+        <entry key="..\:/AndroidStudio/memo-app/Memo/app/src/main/res/layout/fragment_detail.xml" value="0.2" />
         <entry key="..\:/AndroidStudio/memo-app/Memo/app/src/main/res/layout/fragment_home.xml" value="0.25052083333333336" />
         <entry key="..\:/AndroidStudio/memo-app/Memo/app/src/main/res/layout/memo_item.xml" value="0.264" />
         <entry key="..\:/AndroidStudio/memo-app/Memo/app/src/main/res/menu/add_memo_menu.xml" value="0.24947916666666667" />
+        <entry key="..\:/AndroidStudio/memo-app/Memo/app/src/main/res/menu/detail_memo_menu.xml" value="0.264" />
       </map>
     </option>
   </component>

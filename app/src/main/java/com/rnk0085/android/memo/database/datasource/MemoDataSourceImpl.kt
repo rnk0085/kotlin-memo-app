@@ -14,4 +14,7 @@ class MemoDataSourceImpl @Inject constructor(
 
     override fun getAllMemos(): Flow<List<MemoEntity>> = memoDao.getAllMemos()
 
+    override fun getMemo(id: Int): Flow<MemoEntity> = memoDao.getMemo(id)
+
+    override suspend fun delete(memoEntity: MemoEntity) = memoDao.delete(memoEntity)
 }

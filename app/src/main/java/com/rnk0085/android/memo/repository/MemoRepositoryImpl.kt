@@ -34,4 +34,12 @@ class MemoRepositoryImpl @Inject constructor(
     override fun getAllMemos(): Flow<List<MemoEntity>> =
         memoDataSource.getAllMemos()
             .flowOn(ioDispatcher)
+
+    override fun getMemo(id: Int): Flow<MemoEntity> =
+        memoDataSource.getMemo(id)
+            .flowOn(ioDispatcher)
+
+    override suspend fun delete(memoEntity: MemoEntity) = withContext(ioDispatcher) {
+        memoDataSource.delete(memoEntity)
+    }
 }
