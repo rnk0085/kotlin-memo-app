@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -73,6 +74,20 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.detail_memo_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_edit_memo -> {
+                // TODO：編集ボタンタップ時の処理
+                true
+            }
+            R.id.action_delete_memo -> {
+                deleteMemo()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun deleteMemo() {
