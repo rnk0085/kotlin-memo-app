@@ -12,8 +12,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.rnk0085.android.memo.R
+import com.rnk0085.android.memo.database.entity.MemoEntity
 import com.rnk0085.android.memo.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -26,6 +28,8 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+
+    lateinit var memo: MemoEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +58,8 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                     when (uiState) {
                         is DetailUiState.Initial -> {}
                         is DetailUiState.Success -> {
+                            memo = uiState.memo
+
                             binding.apply {
                                 detailMemoTitle.text = uiState.memo.title
                                 detailMemoContent.text = uiState.memo.content
@@ -67,6 +73,11 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.detail_memo_menu, menu)
+    }
+
+    private fun deleteMemo() {
+        viewModel.deleteMemo(memo)
+        findNavController().navigateUp()
     }
 
     override fun onDestroyView() {
