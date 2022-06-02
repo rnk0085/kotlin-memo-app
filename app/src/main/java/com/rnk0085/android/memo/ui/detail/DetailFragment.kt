@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -24,6 +26,11 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,6 +63,10 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                     }
                 }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.detail_memo_menu, menu)
     }
 
     override fun onDestroyView() {
