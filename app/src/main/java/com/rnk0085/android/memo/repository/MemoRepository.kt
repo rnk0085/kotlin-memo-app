@@ -9,4 +9,6 @@ interface MemoRepository {
     fun getAllMemos(): Flow<List<MemoEntity>>
 
     fun getMemo(id: Int): Flow<MemoEntity>
+
+    suspend fun delete(memoEntity: MemoEntity)
 }
