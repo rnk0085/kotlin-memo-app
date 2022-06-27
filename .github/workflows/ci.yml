@@ -1,5 +1,7 @@
 name: Android CI
 
+# 参考：https://qiita.com/uhooi/items/70ffe67ba65d33189db2
+
 on:
   push:
     branches: [ "main" ]
@@ -8,7 +10,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +21,43 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-      - name: Build with Gradle
-        run: ./gradlew build
+      # Gradleのキャッシュ復元
+      - uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # 依存関係の出力
+      - name: Displays the Android dependencies of the project
+        run: ./gradlew androidDependencies
+
+      # コンパイル
+      - name: Run Compile
+        run: ./gradlew assembleDebug
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # チェックアウト
+      - uses: actions/checkout@v3
+
+      # JDKのセットアップ
+      - name: set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      # Gradleのキャッシュ復元
+      - uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # テスト
+      - name: Test with Gradle
+        run: ./gradlew test --stacktrace
