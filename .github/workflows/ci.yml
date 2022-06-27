@@ -66,11 +66,20 @@ jobs:
         run: ./gradlew testDebugUnitTest
 
       # https://github.com/mikepenz/action-junit-report
-      - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v3
-        if: always() # always run even if the previous step fails
+      - if: always()
+        name: Publish test report artifacts
+        uses: actions/upload-artifact@v3
         with:
-          report_paths: '**/build/test-results/test/TEST-*.xml'
+          name: test-reports
+          path: ./**/target/surefire-reports/
+
+      - name: Publish test reports
+        if: always()
+        uses: mikepenz/action-junit-report@v3.1.0
+        with:
+          check_name: test-report
+          report_paths: '**/target/surefire-reports/TEST-*.xml'
+          fail_on_failure: 'true'
 
   # https://github.com/DVDAndroid/action-android-lint
   lint:
