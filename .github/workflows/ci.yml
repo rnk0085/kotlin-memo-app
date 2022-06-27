@@ -71,7 +71,7 @@ jobs:
 
       # テスト
       - name: Test with Gradle
-        run: ./gradlew test --stacktrace
+        run: ./gradlew test
 
       # https://github.com/mikepenz/action-junit-report
       - name: Publish Test Report
