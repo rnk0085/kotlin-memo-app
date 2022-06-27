@@ -15,8 +15,8 @@ class ExampleUnitTest {
         assertEquals(4, 2 + 2)
     }
 
-    @Test
-    fun failure_test () {
-        assertEquals(4, 2 + 20)
-    }
+//    @Test
+//    fun failure_test () {
+//        assertEquals(4, 2 + 20)
+//    }
 }
